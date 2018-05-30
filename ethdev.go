@@ -344,7 +344,7 @@ func RteEthRssFlowByIP() *RteEthConf {
 
 	conf := (*C.struct_rte_eth_conf)(unsafe.Pointer(eth_conf))
 	conf.rxmode.mq_mode = C.ETH_MQ_RX_RSS
-	conf.rx_adv_conf.rss_conf.rss_hf = C.ETH_RSS_TCP
+	conf.rx_adv_conf.rss_conf.rss_hf = C.ETH_RSS_IP
 	conf.rx_adv_conf.rss_conf.rss_key = (*C.uint8_t)(&C.SYMMETRICAL_HASH_KEY[0])
 
 	return eth_conf
